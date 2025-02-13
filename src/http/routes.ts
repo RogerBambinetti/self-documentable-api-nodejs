@@ -6,12 +6,31 @@ export async function routes(app: FastifyTypedInstance) {
     app.get('/test', {
         schema: {
             tags: ['test'],
-            description: 'Get all users',
-            response: z.object({
-                hello: z.string()
-            })
+            description: 'Get test',
+            response: {
+                200: z.object({
+                    hello: z.string()
+                })
+            }
         }
     }, async (request, reply) => {
-        return { hello: 'world' }
-    })
+        return reply.status(200).send({ hello: 'world' });
+    });
+
+    app.post('/test', {
+        schema: {
+            tags: ['test'],
+            description: 'Post test',
+            body: z.object({
+                hello: z.string()
+            }),
+            response: {
+                200: z.object({
+                    hello: z.string()
+                })
+            }
+        }
+    }, async (request, reply) => {
+        return reply.send({ hello: 'world' });
+    });
 }
