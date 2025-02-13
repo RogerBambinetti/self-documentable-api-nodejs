@@ -5,9 +5,6 @@
     "dev": "tsx src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "test": "jest --coverage",
-    "test:watch": "jest --watch",
-    "test:debug": "jest --inspect-brk --runInBand",
     "lint": "eslint . --ext .ts"
   },
   "keywords": [],
