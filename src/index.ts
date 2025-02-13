@@ -3,6 +3,7 @@ import { fastifyCors } from '@fastify/cors'
 import { fastifySwagger } from '@fastify/swagger'
 import { fastifySwaggerUi } from '@fastify/swagger-ui'
 import { validatorCompiler, serializerCompiler } from 'fastify-type-provider-zod'
+import { routes } from './http/routes'
 
 const app = fastify()
 
@@ -24,6 +25,11 @@ app.register(fastifySwaggerUi, {
     routePrefix: '/docs',
 })
 
-app.listen({ port: 3333 }).then(() => {
-    console.log('Server is running on port 3333')
+app.register(routes);
+
+const PORT = 3333
+
+app.listen({ port: PORT }).then(() => {
+    console.log(`Server is running on port ${PORT}`)
+    console.log(`Documentation available at http://localhost:${PORT}/docs`)
 })
