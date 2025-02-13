@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "tsx src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:debug": "jest --inspect-brk --runInBand",
+    "lint": "eslint . --ext .ts"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +25,12 @@
     "@fastify/swagger-ui": "^5.2.1",
     "fastify": "^5.2.1",
     "fastify-type-provider-zod": "^4.0.2",
-    "zod": "^3.24.2"
+    "zod": "^3.24.2",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-config-standard-with-typescript": "^43.0.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-promise": "^6.6.0"
   }
 }
