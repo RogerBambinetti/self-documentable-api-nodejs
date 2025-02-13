@@ -1,6 +1,6 @@
-import { z } from 'zod'
+import { z } from 'zod';
 
-import type { FastifyTypedInstance } from '../types'
+import type { FastifyTypedInstance } from '../types';
 
 export async function routes(app: FastifyTypedInstance): Promise<void> {
   app.get(
@@ -17,9 +17,9 @@ export async function routes(app: FastifyTypedInstance): Promise<void> {
       },
     },
     async (request, reply) => {
-      return await reply.status(200).send({ hello: 'world' })
+      return await reply.status(200).send({ hello: 'world' });
     },
-  )
+  );
 
   app.post(
     '/test',
@@ -38,7 +38,7 @@ export async function routes(app: FastifyTypedInstance): Promise<void> {
       },
     },
     async (request, reply) => {
-      return await reply.send({ hello: 'world' })
+      return await reply.send({ hello: 'world' });
     },
-  )
+  );
 }
